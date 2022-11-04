@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
+import {Link} from "react-router-dom";
 
 export function Post(props) {
     return (
@@ -10,8 +11,7 @@ export function Post(props) {
                 <Card.Text>
                     {props.body}
                 </Card.Text>
-                <Card.Link href="#">Card Link</Card.Link>
-                <Card.Link href="#">Another Link</Card.Link>
+                <Card.Link><Link to={'/dev-blog-post/'+props.postId} className={'inheritAll'}>Read more</Link></Card.Link>
             </Card.Body>
         </Card>
     );

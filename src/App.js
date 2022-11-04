@@ -5,6 +5,7 @@ import { Notfound } from "./pages/notfound/Notfound";
 import { Home } from "./pages/home/Home";
 import { Header } from "./components/Header";
 import Nav from 'react-bootstrap/Nav';
+import Postpage from "./pages/home/components/posts/Postpage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
             <Route path={'/'} element={<Home />}/>
             <Route path={'/profile'} element={<Profile />}/>
+            <Route path={'/dev-blog-post/:id'} element={<Postpage />}/>
             <Route path={'*'} element={<Notfound />}/>
         </Routes>
     </div>

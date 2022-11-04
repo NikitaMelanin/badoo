@@ -1,10 +1,10 @@
 import React from 'react';
 import Alert from 'react-bootstrap/Alert';
 
-export function Error() {
+export function Error(props) {
     return (
         <Alert variant={'danger'}>
-            Произошла ошибка, попробуйте перезапустить страницу
+            {props.message}
         </Alert>
     );
 }

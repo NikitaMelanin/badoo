@@ -9,18 +9,19 @@ export function Home() {
     return (
         <div>
             <Container>
-                <Row className="justify-content-md-center my-5">
+                <Row className="justify-content-md-center mt-5">
                     <Col md="auto">
                             Найди себя себе
                     </Col>
                 </Row>
-                <Row className="justify-content-md-center">
+                <Row className="justify-content-md-center mb-5">
                     <Col md="auto">
                         <Button> Создать аккаунт </Button>
                     </Col>
                 </Row>
+                <Row className={'mb-5'}></Row>
             </Container>
-
+            <hr/>
             <News />
         </div>
     );

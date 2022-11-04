@@ -28,19 +28,32 @@ export function News() {
 
     return (
         <Container>
-            <Row>
+            <Row className={"justify-content-md-center"}>
+                <Col md="auto">
+                    <h3>Dev blog</h3>
+                </Col>
+            </Row>
+            <Row className={"justify-content-md-center"}>
                 {error &&
-                    <Error />
+                    <Row className={"justify-content-md-center mt-5"}>
+                        <Col md="auto">
+                            <Error message={"Произошла ошибка, попробуйте перезапустить страницу"}/>
+                        </Col>
+                    </Row>
                 }
                 {
                     !isLoaded &&
-                    <Loader />
+                    <Row className={"justify-content-md-center mt-5"}>
+                        <Col md="auto">
+                            <Loader />
+                        </Col>
+                    </Row>
                 }
                 {
                     items &&
                     items.map(item => (
                         <Col sm={4}>
-                            <Post title={item.title} userId={items.userId} body={item.body}/>
+                            <Post postId={item.id} title={item.title} userId={item.userId} body={item.body}/>
                         </Col>
                     ))
                 }
