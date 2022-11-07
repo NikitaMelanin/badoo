@@ -1,0 +1,10 @@
+.footer-style {
+    background-color: #808080;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #fff;
+    font-size: small;
+}
+
+.footer-style-container {
+    background-color: rgba(0, 0, 0, 0.653);
+}

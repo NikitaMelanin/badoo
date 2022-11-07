@@ -52,7 +52,7 @@ export function News() {
                 {
                     items &&
                     items.map(item => (
-                        <Col sm={4}>
+                        <Col className={'mb-3'}>
                             <Post postId={item.id} title={item.title} userId={item.userId} body={item.body}/>
                         </Col>
                     ))
