@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Postpage from "./pages/home/components/posts/Postpage";
 import RoutesLayout from './RoutesLayout';
 import Shop from './pages/shop/Shop'
+import AdminPanel from "./adminsPanel/AdminPanel";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
               <Route path={'/dev-blog-post/:id'} element={<Postpage />}/>
               <Route path={'/shop'} element={<Shop />}/>
               <Route path={'*'} element={<Notfound />}/>
+          </Route>
+          <Route path='/admin' element={<AdminPanel />}>
+
           </Route>
         </Routes>
     </div>
