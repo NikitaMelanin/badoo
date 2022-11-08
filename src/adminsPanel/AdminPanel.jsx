@@ -7,7 +7,7 @@ import UserList from "./components/UserList";
 
 export function AdminPanel() {
     return (
-        <Container>
+        <Container className={'my-5'}>
             <Row>
                 <Col>
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
