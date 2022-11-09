@@ -21,7 +21,7 @@ export function Home() {
                 </Row>
                 <Row className={'mb-5'}></Row>
             </Container>
-            <hr/>
+
             <News />
         </div>
     );

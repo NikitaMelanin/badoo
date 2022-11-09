@@ -11,7 +11,7 @@ export function Footer() {
                     <Col>
                         <Row className='justify-content-center'>
                             <Col sm={2}>Russian Badoo <br /> UrFU Inc.</Col>
-                            <Col sm={1}><TmpIcon /> <br /> made by ...</Col>
+                            <Col sm={1}><TmpIcon /> <br /> converse life</Col>
                             <Col sm={4}>
                                 <Row>
                                     <Col className='h5'>Секция по связям</Col>
