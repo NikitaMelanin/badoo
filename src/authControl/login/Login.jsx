@@ -7,8 +7,8 @@ export function Login() {
         <div>
             <Form>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter username" />
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="text" placeholder="Enter username" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
