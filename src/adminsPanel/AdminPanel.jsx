@@ -4,10 +4,12 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import {Nav, Tab} from "react-bootstrap";
 import UserList from "./components/UserList";
+import Login from "../authControl/login/Login";
 
 export function AdminPanel() {
     return (
-        <Container className={'my-5'}>
+        <div className={'bg-secondary'} style={{height: '100vh'}}>
+        <Container className={'py-5 bg-light'}>
             <Row>
                 <Col>
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -17,12 +19,22 @@ export function AdminPanel() {
                                     <Nav.Item>
                                         <Nav.Link eventKey="first">Список пользователь</Nav.Link>
                                     </Nav.Item>
+                                    <Nav.Item>
+                                        <Nav.Link eventKey="second">Тест модалок</Nav.Link>
+                                    </Nav.Item>
                                 </Nav>
                             </Col>
                             <Col>
                                 <Tab.Content>
                                     <Tab.Pane eventKey="first">
                                         <UserList />
+                                    </Tab.Pane>
+                                    <Tab.Pane eventKey="second">
+                                        <div style={{border: '1px solid black'}}>
+                                            <div className={'p-5'}>
+                                                <Login />
+                                            </div>
+                                        </div>
                                     </Tab.Pane>
                                 </Tab.Content>
                             </Col>
@@ -31,6 +43,7 @@ export function AdminPanel() {
                 </Col>
             </Row>
         </Container>
+        </div>
     );
 }
 

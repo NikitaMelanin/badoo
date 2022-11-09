@@ -13,7 +13,7 @@ export function UserList() {
     const [pages, setPages] = useState([]);
 
     useEffect(() => {
-        fetch("http://public/admin/users")
+        fetch("http://public.loc/api/users")
             .then((response) => response.json())
             .then(
                 (response) => {
