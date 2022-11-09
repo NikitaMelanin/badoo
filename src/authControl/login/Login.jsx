@@ -11,7 +11,7 @@ export function Login() {
         })
             .then((response) => (response.json()))
             .then((response) => {
-                localStorage.setItem(response.token);
+                localStorage.setItem('token', response.token);
             })
     };
 

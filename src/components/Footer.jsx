@@ -23,9 +23,9 @@ export function Footer() {
                             </Col>
                             <Col sm={4}>
                                 <Row>
-                                    <Col className='h5'>Секция по связям</Col>
+                                    <Col className='h5'>Навигация по сайту</Col>
                                 </Row>
-                                    <Row><Col>Техническая поддержка</Col></Row>
+                                    <Row><Col><a href={'/admin'} className={'inheritAll'}>Панель администратора</a></Col></Row>
                                     <Row><Col>Контактный номер</Col></Row>
                                     <Row><Col>Электронная почта</Col></Row>
                                     <Row><Col>Физический адрес</Col></Row>

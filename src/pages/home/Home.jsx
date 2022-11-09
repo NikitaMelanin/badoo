@@ -9,9 +9,9 @@ export function Home() {
     return (
         <div>
             <Container>
-                <Row className="justify-content-md-center mt-5">
+                <Row className="justify-content-md-center mt-5 mb-3">
                     <Col md="auto">
-                            Найди себя себе
+                            <span className={'h3'}>Найди себя себе</span>
                     </Col>
                 </Row>
                 <Row className="justify-content-md-center mb-5">

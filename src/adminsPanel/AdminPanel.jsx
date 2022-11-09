@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import {Nav, Tab} from "react-bootstrap";
 import UserList from "./components/UserList";
 import Login from "../authControl/login/Login";
+import Button from 'react-bootstrap/Button';
 
 export function AdminPanel() {
     return (
@@ -15,6 +16,10 @@ export function AdminPanel() {
                     <Tab.Container id="left-tabs-example" defaultActiveKey="first">
                         <Row>
                             <Col sm={3}>
+                                <a href="/">
+                                    <Button className={'btn-warning w-100'}>Вернуться на главную</Button>
+                                </a>
+                                <hr/>
                                 <Nav variant="pills" className="flex-column">
                                     <Nav.Item>
                                         <Nav.Link eventKey="first">Список пользователь</Nav.Link>
@@ -30,7 +35,7 @@ export function AdminPanel() {
                                         <UserList />
                                     </Tab.Pane>
                                     <Tab.Pane eventKey="second">
-                                        <div style={{border: '1px solid black'}}>
+                                        <div style={{border: '0px solid black'}}>
                                             <div className={'p-5'}>
                                                 <Login />
                                             </div>
