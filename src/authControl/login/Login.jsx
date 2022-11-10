@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 
 export function Login() {
     const eventFunc = () => {
-        fetch("http://public.loc/api/login_check", {
+        fetch("http://localhost:8000/api/login_check", {
             method: "POST",
             body: JSON.stringify({"username": loginFormUsername.current.value, "password": loginFormPassword.current.value})
         })

@@ -4,6 +4,8 @@ import Pagination from 'react-bootstrap/Pagination';
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import { LineAxisOutlined } from '@mui/icons-material';
+import axios from 'axios';
 
 export function UserList() {
     const [users, setUsers] = useState([]);
@@ -11,9 +13,18 @@ export function UserList() {
     const [currentPage, setCurrentPage] = useState(0);
     const [message, setMessage] = useState([]);
     const [pages, setPages] = useState([]);
+    const [token, setToken ] = useState(localStorage.getItem('token'));
+
+
 
     useEffect(() => {
-        fetch("http://public.loc/api/users")
+
+        fetch("http://localhost:8000/api/users", {
+            method: "GET",
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((response) => response.json())
             .then(
                 (response) => {
@@ -76,7 +87,6 @@ export function UserList() {
                     </Col>
                 </Row>
             </Container>
-
         </div>
     );
 }
