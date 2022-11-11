@@ -45,7 +45,7 @@ export function Profile() {
             }
             {user &&
                 <Container className={'bg-light'}>
-                    <Row className={'justify-content-md-center'}>
+                    <Row className={'justify-content-md-center mb-5'}>
                         <Col md={'auto'}>
                             <h4>Твой личный профиль!</h4>
                         </Col>
@@ -70,12 +70,12 @@ export function Profile() {
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    Место работы в муте
+                                    Ulitsa Malysheva, 71 Yekaterinburg, Sverdlovskaya oblast', 620075
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    Место жизни
+                                    Yekaterinburg, Sverdlovskaya oblast'
                                 </Col>
                             </Row>
                             <Row className={'my-2'}>
@@ -130,11 +130,7 @@ export function Profile() {
                         </Col>
 
                     </Row>
-                    <pre>
-                        {JSON.stringify(user)}
-                    </pre>
                 </Container>
-
             }
         </div>
     );

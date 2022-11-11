@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export function ProfileSlider() {
     return (
-        <Carousel>
+        <Carousel variant={'dark'}>
             <Carousel.Item className={'slide_profile'}>
                 <img
                     className="d-block photo_profile_avatar"

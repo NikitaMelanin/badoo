@@ -30,6 +30,10 @@
   width: 300px;
 }
 
+.carousel-control-prev {
+  background-color: #ff2e00;
+}
+
 .slide_profile {
   position: relative;
   height: 550px;
