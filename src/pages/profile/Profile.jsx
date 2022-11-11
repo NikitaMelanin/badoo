@@ -22,11 +22,7 @@ export function Profile() {
             .then(res => res.json())
             .then(
                 (res) => {
-                    if(res.code === null) {
-                        setUser(res);
-                    } else {
-                        setUser("test");
-                    }
+                    setUser(res);
                     setIsLoaded(true);
                 },
                 (error) => {
@@ -59,33 +55,28 @@ export function Profile() {
                         <Col className={'p-3'}>
                             <Row>
                                 <Col className={'h5'}>
-                                    Имя
+                                    {user.name}
                                 </Col>
                                 <Col className={'h5'}>
-                                    Фамилия
+                                    {user.surname}
                                 </Col>
                                 <Col className={'h5'}>
-                                    25
+                                    {user.age}
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    Ulitsa Malysheva, 71 Yekaterinburg, Sverdlovskaya oblast', 620075
+                                    {user.workAddress}
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    Yekaterinburg, Sverdlovskaya oblast'
+                                    {user.cityLiving}
                                 </Col>
                             </Row>
                             <Row className={'my-2'}>
                                 <Col>
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br />
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br />
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.<br />
-                                        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br />
-                                        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,<br />
-                                        and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    {user.Description}
                                 </Col>
                             </Row>
                             <Row>
@@ -95,36 +86,21 @@ export function Profile() {
                                     </Col>
                                 </Row>
                                 <Row className={'bg-light justify-content-start mx-2 p-2'}>
-                                    <Col sm={'auto'}>
-                                        <Badge pill bg="secondary"  className={'py-1 px-3'}>
-                                            Instagram
-                                        </Badge>
-                                    </Col>
-                                    <Col sm={'auto'}>
-                                        <Badge pill bg="secondary"  className={'py-1 px-3'}>
-                                            Twitter
-                                        </Badge>
-                                    </Col>
-                                    <Col sm={'auto'}>
-                                        <Badge pill bg="secondary"  className={'py-1 px-3'}>
-                                            Играть в футболл
-                                        </Badge>
-                                    </Col>
-                                    <Col sm={'auto'}>
-                                        <Badge pill bg="secondary"  className={'py-1 px-3'}>
-                                            Дышать
-                                        </Badge>
-                                    </Col>
-                                    <Col sm={'auto'}>
-                                        <Badge pill bg="secondary"  className={'py-1 px-3'}>
-                                            Прыгать
-                                        </Badge>
-                                    </Col>
+                                    {/*{*/}
+                                    {/*    // eslint-disable-next-line array-callback-return*/}
+                                    {/*    user.interests.map((item) => {*/}
+                                    {/*        <Col sm={'auto'}>*/}
+                                    {/*            <Badge pill bg="secondary"  className={'py-1 px-3'}>*/}
+                                    {/*                {item.name}*/}
+                                    {/*            </Badge>*/}
+                                    {/*        </Col>*/}
+                                    {/*    })*/}
+                                    {/*}*/}
                                 </Row>
                             </Row>
                             <Row>
                                 <Col>
-                                    User tag: <span className={'text-muted'}>@george</span>
+                                    User tag: <span className={'text-muted'}>@{user.username}</span>
                                 </Col>
                             </Row>
                         </Col>
