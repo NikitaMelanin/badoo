@@ -6,9 +6,32 @@ import LoginIcon from '../components/LoginIcon';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Login from '../authControl/login/Login';
+import { useEffect } from 'react';
+import Logout from '../authControl/logout/Logout';
 
 export function Header(props) {
     const [show, setShow] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
+    const [user, setUser] = useState([]);
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    
+    useEffect(() => {
+        if(token === null) {
+            setIsAuth(false);
+        } else {
+            setIsAuth(true);
+            fetch("http://localhost:8000/api/user/check/me", {
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+            .then((response) => (response.json()))
+            .then((response) => {
+                setUser(response);
+            })
+        }
+    }, [show])
 
     const handleShow = () => {
         setShow(true);
@@ -20,6 +43,7 @@ export function Header(props) {
 
     const handleStatusShow = (value) => {
         setShow(!value);
+        setToken(localStorage.getItem('token'));
     }
 
     return (
@@ -31,7 +55,11 @@ export function Header(props) {
                         { props.children }
                     </Nav>
                     <Nav className="me-auto">
+                        {isAuth ? 
+                        <><Navbar.Text className='mx-5'><div className='my-4'>{user.username}</div> </Navbar.Text> <Navbar.Text><Logout onSubmit={handleStatusShow} /></Navbar.Text></>
+                        : 
                         <Nav.Link onClick={handleShow}><LoginIcon /> My accounts</Nav.Link>
+                        }
                     </Nav>
                 </Container>
             </Navbar>

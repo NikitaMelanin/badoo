@@ -7,6 +7,7 @@ export function Logout({onSubmit}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
+        onSubmit(false)
     }
 
     return (
