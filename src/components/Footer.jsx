@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import TmpIcon from './TmpIcon';
+import TmpIcon from '../icon/TmpIcon';
 import './style/footer-style.css';
 
 export function Footer() {

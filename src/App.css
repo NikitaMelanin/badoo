@@ -16,6 +16,27 @@
   border: black solid 1px;
 }
 
+.profile_avatars_width_height {
+  max-width: 80%;
+}
+
+.photo_profile_avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  height: 550px;
+  width: 300px;
+}
+
+.slide_profile {
+  position: relative;
+  height: 550px;
+  width: 300px;
+  overflow: hidden;
+}
+
 .width_100 {
   width: 100%;
 }
