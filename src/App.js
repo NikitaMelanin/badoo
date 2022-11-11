@@ -12,7 +12,6 @@ import AdminPanel from "./adminsPanel/AdminPanel";
 
 function App() {
   return (
-    <div>
         <Routes>
           <Route path='/' element={<RoutesLayout />}>
             <Route path={'/'} element={<Home />}/>
@@ -21,11 +20,11 @@ function App() {
               <Route path={'/shop'} element={<Shop />}/>
               <Route path={'*'} element={<Notfound />}/>
           </Route>
-          <Route path='/admin' element={<AdminPanel />}>
-
+          <Route path='/admin' element={
+              <AdminPanel />
+          }>
           </Route>
         </Routes>
-    </div>
   );
 }
 

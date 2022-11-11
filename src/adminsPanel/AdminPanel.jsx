@@ -6,9 +6,17 @@ import {Nav, Tab} from "react-bootstrap";
 import UserList from "./components/UserList";
 import Login from "../authControl/login/Login";
 import Button from 'react-bootstrap/Button';
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Navigate} from "react-router-dom";
 
 export function AdminPanel() {
+    const token = localStorage.getItem('token');
+
+    if(token === null) {
+        return <>
+            <Navigate to='/'  />
+        </>
+    }
+    
     return (
         <div className={'bg-secondary'} style={{height: '100vh'}}>
             <Container className={'py-5 bg-light'}>

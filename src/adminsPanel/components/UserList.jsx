@@ -4,14 +4,11 @@ import Pagination from 'react-bootstrap/Pagination';
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { LineAxisOutlined } from '@mui/icons-material';
-import axios from 'axios';
 
 export function UserList() {
     const [users, setUsers] = useState([]);
     const [countPage, setCountPage] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
-    const [message, setMessage] = useState([]);
     const [pages, setPages] = useState([]);
     const [token, setToken ] = useState(localStorage.getItem('token'));
 
@@ -32,22 +29,21 @@ export function UserList() {
                     setCurrentPage(response.currentPage);
                     setUsers(response.userList);
                     }, (error) => {
-                    setMessage(JSON.stringify(error));
+                        console.error(error)
                     }
             );
-    }, []);
+    });
 
     useEffect( () => {
-        for (let start = 1; start <= countPage; start++) {
-            let tmpPage = pages;
-
+        let tmpPage = pages;
+        for (let start = 1; start < countPage + 1; start++) {
             tmpPage.push(
                 <Pagination.Item key={start} active={start === currentPage}>
                     {start}
                 </Pagination.Item>,
             );
-            setPages(tmpPage);
         }
+        setPages(tmpPage);
         },[currentPage]
     );
 
