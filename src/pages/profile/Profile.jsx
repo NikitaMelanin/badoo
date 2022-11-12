@@ -66,12 +66,12 @@ export function Profile() {
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    {user.workAddress}
+                                    <small>{user.workAddress}</small>
                                 </Col>
                             </Row>
                             <Row>
                                 <Col className={'text-muted'}>
-                                    {user.cityLiving}
+                                    <small>{user.cityLiving}</small>
                                 </Col>
                             </Row>
                             <Row className={'my-2'}>
