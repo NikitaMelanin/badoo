@@ -3,6 +3,7 @@ import Loader from "../home/components/news/Component/Loader";
 import Error from "../home/components/news/Component/Error";
 import {Container, Row, Col, Badge} from 'react-bootstrap';
 import ProfileSlider from "./components/ProfileSlider";
+import {Endpoint} from "../../Endpoint";
 
 
 
@@ -13,7 +14,7 @@ export function Profile() {
     const [token, setToken ] = useState(localStorage.getItem('token'));
 
     useEffect(() => {
-        fetch("http://leenwood.space/api/user/check/me", {
+        fetch(Endpoint.checkMeRoute(), {
             method: 'GET',
             headers: {
                 Authorization: 'Bearer ' + token

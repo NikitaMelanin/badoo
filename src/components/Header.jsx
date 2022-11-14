@@ -9,6 +9,7 @@ import Login from '../authControl/login/Login';
 import { useEffect } from 'react';
 import Logout from '../authControl/logout/Logout';
 import Person from "../icon/Person";
+import {Endpoint} from '../Endpoint';
 
 export function Header(props) {
     const [show, setShow] = useState(false);
@@ -21,7 +22,7 @@ export function Header(props) {
             setIsAuth(false);
         } else {
             setIsAuth(true);
-            fetch("http://leenwood.space/api/user/check/me", {
+            fetch(Endpoint.checkMeRoute(), {
                 method: 'GET',
                 headers: {
                     Authorization: 'Bearer ' + token
