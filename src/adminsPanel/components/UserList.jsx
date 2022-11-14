@@ -16,7 +16,7 @@ export function UserList() {
 
     useEffect(() => {
 
-        fetch("http://localhost:8000/api/users", {
+        fetch("http://leenwood.space/api/users", {
             method: "GET",
             headers: {
                 Authorization: 'Bearer ' + token

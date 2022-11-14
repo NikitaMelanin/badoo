@@ -6,7 +6,7 @@ export function Login( {onSubmit }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("http://localhost:8000/api/login_check", {
+        fetch("http://leenwood.space/api/login_check", {
             method: "POST",
             body: JSON.stringify({"username": loginFormUsername.current.value, "password": loginFormPassword.current.value})
         })

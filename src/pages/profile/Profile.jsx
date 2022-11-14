@@ -13,7 +13,7 @@ export function Profile() {
     const [token, setToken ] = useState(localStorage.getItem('token'));
 
     useEffect(() => {
-        fetch("http://localhost:8000/api/user/check/me", {
+        fetch("http://leenwood.space/api/user/check/me", {
             method: 'GET',
             headers: {
                 Authorization: 'Bearer ' + token
@@ -76,7 +76,9 @@ export function Profile() {
                             </Row>
                             <Row className={'my-2'}>
                                 <Col>
-                                    {user.Description}
+                                    <p style={{whiteSpace: "pre-line"}}>
+                                        {user.Description}
+                                    </p>
                                 </Col>
                             </Row>
                             <Row>

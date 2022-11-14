@@ -21,7 +21,7 @@ export function Header(props) {
             setIsAuth(false);
         } else {
             setIsAuth(true);
-            fetch("http://localhost:8000/api/user/check/me", {
+            fetch("http://leenwood.space/api/user/check/me", {
                 method: 'GET',
                 headers: {
                     Authorization: 'Bearer ' + token
