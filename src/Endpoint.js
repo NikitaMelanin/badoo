@@ -2,7 +2,7 @@ import React from 'react';
 
 export class Endpoint
 {
-    static local = true;
+    static local = false;
 
     static loginRoute() {
         if(this.local) {
@@ -17,6 +17,14 @@ export class Endpoint
             return 'http://leenwood.loc/api/user/check/me';
         } else {
             return 'http://leenwood.space/api/user/check/me';
+        }
+    }
+
+    static registerUserRoute() {
+        if(this.local) {
+            return 'http://leenwood.loc/user/register';
+        } else {
+            return 'http://leenwood.space/user/register';
         }
     }
 }
