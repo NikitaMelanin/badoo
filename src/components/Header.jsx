@@ -6,32 +6,25 @@ import LoginIcon from '../icon/LoginIcon';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Login from '../authControl/login/Login';
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import Logout from '../authControl/logout/Logout';
 import Person from "../icon/Person";
 import {Endpoint} from '../Endpoint';
+import UserContext from '../authControl/UserContext';
 
 export function Header(props) {
     const [show, setShow] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
-    const [user, setUser] = useState([]);
-    const [token, setToken] = useState(localStorage.getItem('token'));
+    const {user, setUser} = useContext(UserContext);
+    const [token, setToken] = useState();
+
+    console.log(user.id);
     
     useEffect(() => {
-        if(token === null) {
-            setIsAuth(false);
-        } else {
+        if(user.id > 0) {
             setIsAuth(true);
-            fetch(Endpoint.checkMeRoute(), {
-                method: 'GET',
-                headers: {
-                    Authorization: 'Bearer ' + token
-                }
-            })
-            .then((response) => (response.json()))
-            .then((response) => {
-                setUser(response);
-            })
+        } else {
+            setIsAuth(false);
         }
     }, [show])
 

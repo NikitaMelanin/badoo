@@ -1,10 +1,16 @@
-import React, {useRef} from 'react';
+import React, { useRef, useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {Endpoint} from "../../Endpoint";
+import UserContext from '../UserContext';
 
 export function Login( {onSubmit }) {
 
+    const {user, setUser} = useContext(UserContext);
+    const [isTokenGet, setIsTokenGet] = useState(false);
+    const [token, setToken] = useState("");
+
+    console.log(user);
     const handleSubmit = (e) => {
         e.preventDefault();
         fetch(Endpoint.loginRoute(), {
@@ -14,10 +20,24 @@ export function Login( {onSubmit }) {
             .then((response) => (response.json()))
             .then((response) => {
                 localStorage.setItem('token', response.token);
-                onSubmit(true)
+                setIsTokenGet(true);
+                setToken(response.token);
+                onSubmit(true);
             }, (error) => {
                 console.error(error)
             })
+        if(isTokenGet) {
+            fetch(Endpoint.checkMeRoute, {
+                method: 'GET',
+                headers: {
+                    Authorization: 'Bearer ' + token
+                }
+            })
+                .then((response) => (response.json()))
+                .then((response) => {
+                setUser(response);
+            })
+        }
     }
     const loginFormUsername = useRef(null);
     const loginFormPassword = useRef(null);
