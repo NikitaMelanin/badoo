@@ -7,9 +7,13 @@ export function Register({onSubmit}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(JSON.stringify({ "username": loginFormUsername.current.value, "password": loginFormPassword.current.value} ))
         fetch(Endpoint.registerUserRoute(), {
             method: "POST",
-            body: JSON.stringify({"username": loginFormUsername.current.value, "password": loginFormPassword.current.value})
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "username": loginFormUsername.current.value, "password": loginFormPassword.current.value} )
         })
             .then((response) => (response.json()))
             .then((response) => {

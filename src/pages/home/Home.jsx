@@ -35,7 +35,7 @@ export function Home() {
             </Container>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Authorization</Modal.Title>
+                    <Modal.Title>Register</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Register onSubmit={handleClose} />
