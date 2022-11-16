@@ -1,36 +1,49 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Loader from "../home/components/news/Component/Loader";
 import Error from "../home/components/news/Component/Error";
 import {Container, Row, Col, Badge} from 'react-bootstrap';
 import ProfileSlider from "./components/ProfileSlider";
 import {Endpoint} from "../../Endpoint";
+import UserContext from '../../authControl/UserContext';
+import { cleanup } from '@testing-library/react';
 
 
 
 export function Profile() {
-    const [user, setUser] = useState([]);
+    // const [user, setUser] = useState([]);
+    const {user, setUser} = useContext(UserContext);
     const [isLoaded, setIsLoaded] = useState(false);
     const [error, setError] = useState(null);
     const [token, setToken ] = useState(localStorage.getItem('token'));
 
+    // useEffect(() => {
+    //     fetch(Endpoint.checkMeRoute(), {
+    //         method: 'GET',
+    //         headers: {
+    //             Authorization: 'Bearer ' + token
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(
+    //             (res) => {
+    //                 setUser(res);
+    //                 setIsLoaded(true);
+    //             },
+    //             (error) => {
+    //                 setError(error);
+    //             }
+    //         );
+    // },[]);
+
     useEffect(() => {
-        fetch(Endpoint.checkMeRoute(), {
-            method: 'GET',
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
-            .then(res => res.json())
-            .then(
-                (res) => {
-                    setUser(res);
-                    setIsLoaded(true);
-                },
-                (error) => {
-                    setError(error);
-                }
-            );
-    },[]);
+        if(user.id > 0) {
+            setIsLoaded(true)
+        };
+        return function cleanup() {
+            console.log('element close');
+        };
+    }, [])
+
 
     return (
         <div>
