@@ -26,18 +26,18 @@ export function Login( {onSubmit }) {
             }, (error) => {
                 console.error(error)
             })
-        if(isTokenGet) {
-            fetch(Endpoint.checkMeRoute, {
-                method: 'GET',
-                headers: {
-                    Authorization: 'Bearer ' + token
-                }
-            })
-                .then((response) => (response.json()))
-                .then((response) => {
-                setUser(response);
-            })
-        }
+        // if(isTokenGet) {
+        //     fetch(Endpoint.checkMeRoute, {
+        //         method: 'GET',
+        //         headers: {
+        //             Authorization: 'Bearer ' + token
+        //         }
+        //     })
+        //         .then((response) => (response.json()))
+        //         .then((response) => {
+        //         setUser(response);
+        //     })
+        // }
     }
     const loginFormUsername = useRef(null);
     const loginFormPassword = useRef(null);
