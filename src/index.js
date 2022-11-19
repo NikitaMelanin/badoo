@@ -13,6 +13,11 @@ function Main() {
   const [user, setUser] = useState([]);
   const [token, setToken] = useState();
 
+  useEffect(() => {
+    if(localStorage.getItem('token') !== null) {
+      setToken(localStorage.getItem('token'));
+    };
+  }, [token])
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

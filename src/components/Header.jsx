@@ -17,7 +17,6 @@ export function Header(props) {
     const [show, setShow] = useState(false);
     const [isAuth, setIsAuth] = useState(false);
     const { user, setUser } = useContext(UserContext);
-    const [token, setToken] = useState();
 
     useEffect(() => {
         console.log(user);
@@ -39,14 +38,13 @@ export function Header(props) {
 
     const handleStatusShow = (value) => {
         setShow(!value);
-        setToken(localStorage.getItem('token'));
     }
 
     return (
         <div>
             <Navbar bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand>Navbar</Navbar.Brand>
+                    <Navbar.Brand>Badoo</Navbar.Brand>
                     <Nav className="me-auto">
                         {props.children}
                     </Nav>
