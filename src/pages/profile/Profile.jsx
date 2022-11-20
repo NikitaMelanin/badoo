@@ -6,8 +6,7 @@ import ProfileSlider from "./components/ProfileSlider";
 import {Endpoint} from "../../Endpoint";
 import UserContext from '../../authControl/UserContext';
 import { cleanup } from '@testing-library/react';
-
-
+import GeoAlt from "../../icon/GeoALt";
 
 export function Profile() {
     // const [user, setUser] = useState([]);
@@ -38,11 +37,8 @@ export function Profile() {
     useEffect(() => {
         if(user.id > 0) {
             setIsLoaded(true)
-        };
-        return function cleanup() {
-            console.log('element close');
-        };
-    }, [])
+        }
+    }, [user])
 
 
     return (
@@ -78,9 +74,20 @@ export function Profile() {
                                     {user.age}
                                 </Col>
                             </Row>
+                            <hr className={"w-75"} />
+                            <Row>
+                                <Col className={'text-muted'}>
+                                    <GeoAlt /> <small className={'text-dark'}>Место работы</small>
+                                </Col>
+                            </Row>
                             <Row>
                                 <Col className={'text-muted'}>
                                     <small>{user.workAddress}</small>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col className={'text-muted'}>
+                                    <GeoAlt /> <small className={'text-dark'}>Город проживания</small>
                                 </Col>
                             </Row>
                             <Row>
